@@ -1,9 +1,13 @@
+import { CalendarRange } from 'lucide-react';
 import React from 'react';
 
 const Navbar = () => {
   return (
-    <div className='flex justify-center h-10 items-center'>
-      hello kub
+    <div className='flex h-10 items-center p-14 px-15'>
+      <div className='flex gap-3 items-center'>
+        <CalendarRange className='size-8' />
+        <p className='font-semibold text-lg'>Todo list</p>
+      </div>
     </div>
   );
 }
