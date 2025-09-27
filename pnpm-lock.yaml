@@ -14,6 +14,9 @@ importers:
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(react@19.1.0)
+      '@fontsource/alan-sans':
+        specifier: ^5.2.1
+        version: 5.2.1
       '@fortawesome/fontawesome-svg-core':
         specifier: ^7.0.1
         version: 7.0.1
@@ -584,6 +587,9 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@fontsource/alan-sans@5.2.1':
+    resolution: {integrity: sha512-bXTCQdkBcAxmovUvKrYWe0Ef11+04cgHIH7BEPpwONPEwGyRjeTSDWODPVaab+EHYHifiLULZ60wGMn9meJdrg==}
 
   '@fortawesome/fontawesome-common-types@7.0.1':
     resolution: {integrity: sha512-0VpNtO5cNe1/HQWMkl4OdncYK/mv9hnBte0Ew0n6DMzmo3Q3WzDFABHm6LeNTipt5zAyhQ6Ugjiu8aLaEjh1gg==}
@@ -5645,6 +5651,8 @@ snapshots:
       '@floating-ui/utils': 0.2.10
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@fontsource/alan-sans@5.2.1': {}
 
   '@fortawesome/fontawesome-common-types@7.0.1': {}
 

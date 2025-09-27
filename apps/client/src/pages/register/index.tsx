@@ -3,7 +3,7 @@ import Wallpaper from '../components/login&register/wallpaper'
 import { easeOut, motion } from "framer-motion";
 import Registerlayout from '../components/login&register/Registerlayout';
 
-function Loginpage() {
+function Registerpage() {
 
   const sectionVariants = {
     hidden: { opacity: 0, scale: 0.95 },
@@ -30,4 +30,4 @@ function Loginpage() {
   )
 }
 
-export default Loginpage
+export default Registerpage

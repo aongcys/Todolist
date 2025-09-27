@@ -23,3 +23,22 @@
     "noFallthroughCasesInSwitch": false
   }
 }
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "target": "es2022",
+//     "baseUrl": "./src",
+//     "outDir": "./dist",
+//     "strict": true,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "esModuleInterop": true
+//   },
+//   "include": [
+//     "src/**/*.ts"
+//   ],
+//   "exclude": [
+//     "node_modules",
+//     "dist/**/*"
+//   ]
+// }

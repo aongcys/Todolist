@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useCustomRouter } from '../hook/routerpush';
 
 type LoginArgs = {
   email: string;
@@ -14,6 +15,7 @@ function Loginlayout() {
   const { register, handleSubmit } = useForm<LoginArgs>({ mode: 'onChange' });
   const [alert, setAlert] = useState<string>('');
   const [showpass, setShowpass] = useState<boolean>(false);
+  const { push } = useCustomRouter();
 
   const OnSubmit: SubmitHandler<LoginArgs> = data => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,6 +26,7 @@ function Loginlayout() {
     } else {
       console.log('Logging in with', data);
       setAlert("");
+      push('/dashboard/thisday');
     }
   }
 
