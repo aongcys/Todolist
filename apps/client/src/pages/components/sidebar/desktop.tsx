@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Sidebarconstant } from "./constant";
 import "@fontsource/alan-sans/300.css";
 import { RiMenuFold4Fill } from "react-icons/ri";
@@ -10,15 +10,15 @@ function Sidebardesktop() {
   const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
 
-  useEffect(() => { // เอาค่า collapsed จาก localStorage แล้วมาตรวจสอบ
-    const keepcollapsed = localStorage.getItem('sidebar-collapsed');
-    if (keepcollapsed !== null) {
-      setCollapsed(JSON.parse(keepcollapsed));// เป็น string ต้องแปลงเป็น boolean ใช้ JSON.parse
-    }
-    if (keepcollapsed === 'true') {
-
-    }
-  }, []);
+  // useEffect(() => { // เอาค่า collapsed จาก localStorage แล้วมาตรวจสอบ
+  //   const keepcollapsed = localStorage.getItem('sidebar-collapsed');
+  //   if (keepcollapsed !== null) {
+  //     setCollapsed(JSON.parse(keepcollapsed));// เป็น string ต้องแปลงเป็น boolean ใช้ JSON.parse
+  //   }
+  //   if (keepcollapsed === 'true') {
+  //     setCollapsed(true);
+  //   }
+  // }, []);
 
   const clickocollapsed = () => {
     setCollapsed(prev => {
