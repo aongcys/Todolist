@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 type RegisterArgs = {
   firstname: string;
@@ -18,6 +19,7 @@ function Registerlayout() {
   const [alert, setAlert] = useState<string>('');
   const [showpass, setShowpass] = useState<boolean>(false);
   const [showconpass, setShowconpass] = useState<boolean>(false);
+  const router = useRouter();
 
 
   const OnSubmit: SubmitHandler<RegisterArgs> = data => {
@@ -35,6 +37,7 @@ function Registerlayout() {
     } else {
       console.log('Rgister in with', data);
       setAlert("");
+      router.push('/login')
     }
   }
 
