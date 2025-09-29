@@ -3,6 +3,7 @@ import React from 'react'
 import { TbBrandDaysCounter } from 'react-icons/tb'
 import Calendarlistbutton from '@/pages/components/dashboardelement/calender&listbutton'
 import Addtodo from '@/pages/components/dashboardelement/addtodo'
+import Thisdaytodo from '@/pages/components/dashboardelement/thisdaytodo'
 
 function Importantpage() {
 
@@ -33,7 +34,10 @@ function Importantpage() {
               </div>
               <Calendarlistbutton></Calendarlistbutton>
             </div>
-            <Addtodo></Addtodo>
+            <div className='flex flex-col gap-2'>
+              <Addtodo></Addtodo>
+              <Thisdaytodo></Thisdaytodo>
+            </div>
           </div>
         </div>
       </Applayout>

@@ -9,12 +9,14 @@ const Applayout: React.FC<React.PropsWithChildren> = ({ children }) => {
       <Dashbordlayout />
 
       {/* เนื้อหาหลัก */}
-      <div className="flex-1 flex flex-col overflow-hidden bg-[#f8fdff]">
+      <div className="flex-1 flex flex-col overflow-hidden bg-[#f3f9fb]">
         {/* Navbar */}
         <Usernavbar />
 
         {/* เนื้อหาของเพจ */}
-        <main className="flex-1 overflow-auto bg-[#f8fdff] px-8">
+        <main className="flex-1 overflow-auto bg-[#f3f9fb] px-8">
+
+
           {children}
         </main>
       </div>

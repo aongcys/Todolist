@@ -7,10 +7,11 @@ function Addtodo() {
   const [showinput, setShowinput] = React.useState(false)
 
   const clickaddtodo = () => {
-    setShowinput(prev => {
-      localStorage.setItem("sidebar-collapsed", JSON.stringify(!prev));
-      return !prev;
-    });
+    setShowinput(true);
+  }
+
+  const closeaddtodo = () => {
+    setShowinput(!showinput);
   }
 
   return (
@@ -33,14 +34,19 @@ function Addtodo() {
       </button>
 
       <div
-        className={`transition-all duration-700 overflow-hidden bg-gray-100 p-2 pl-5 flex items-center justify-between rounded-b-xl shadow-md
-  ${showinput ? "h-16 opacity-100" : "h-0 opacity-0"}`}
+        className={`transition-all duration-1000 overflow-hidden bg-gray-100 p-1 pl-5 flex items-center justify-between rounded-b-xl shadow-md
+  ${showinput ? "h-14 opacity-100" : "h-0 opacity-0"}`}
       >
-        <div className='tooltip tooltip-right flex items-center p-2 bg-white rounded-lg hover:bg-[#8caae9] hover:text-white hover:transition hover:duration-500' data-tip="Add date">
+        <div className='tooltip tooltip-right flex items-center p-2 bg-white rounded-lg hover:bg-[#8caae9] hover:text-white hover:transition hover:duration-500' data-tip="Add Date">
           <button className='flex'><LuCalendarClock className='size-5' /></button>
         </div>
-        <div>
-          <button className='border-[1.5px] border-[#3f8ae7] p-2 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-500'>Add Task</button>
+        <div className='flex gap-2'>
+          <button className='border-[1.5px] border-[#3f8ae7] p-1.5 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-500'>Add Task</button>
+          <button
+            className='border-[1.5px] border-[#e73f61] p-1.5 rounded-lg text-sm font-semibold text-[#e73f61] hover:text-white hover:bg-[#e73f61] hover:transition hover:duration-500'
+            onClick={closeaddtodo}
+          >Cancel</button>
+
         </div>
       </div>
 
