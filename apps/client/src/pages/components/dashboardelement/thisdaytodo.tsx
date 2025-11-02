@@ -17,73 +17,73 @@ function Thisdaytodo() {
   const tasks: ThisdaytodoProps[] = [
     {
       taskname: 'task 1',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: true
     },
     {
       taskname: 'task 2',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: true,
       improtant: true
     },
     {
       taskname: 'task 3',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: true
     },
     {
       taskname: 'task 4',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 5',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 6',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 7',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 8',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 9',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 10',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 11',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
     {
       taskname: 'task 12',
-      duedate: '2025-09-29',
+      duedate: '2025-10-28',
       iscompleted: false,
       improtant: false
     },
@@ -143,7 +143,7 @@ function Thisdaytodo() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 pb-4">
             <button
               className="flex items-center font-normal text-gray-500"
               onClick={toggleShowCompleted}
