@@ -42,9 +42,9 @@ function Addtodo() {
         </div>
         <div className='flex gap-2'>
           <button
-            className='border-[1.5px] border-[#3f8ae7] p-1.5 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-500 cursor-pointer'>Add Task</button>
+            className='border-[1.5px] border-[#3f8ae7] p-1.5 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-500 cursor-point'>Add Task</button>
           <button
-            className='border-[1.5px] border-[#e73f61] p-1.5 rounded-lg text-sm font-semibold text-[#e73f61] hover:text-white hover:bg-[#e73f61] hover:transition hover:duration-500 cursor-pointer'
+            className='border-[1.5px] border-[#e73f61] p-1.5 rounded-lg text-sm font-semibold text-[#e73f61] hover:text-white hover:bg-[#e73f61] hover:transition hover:duration-500 cursor-point'
             onClick={closeaddtodo}
           >Cancel</button>
 

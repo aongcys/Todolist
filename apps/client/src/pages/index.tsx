@@ -1,13 +1,31 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { sectionvariants } from "./components/changepageanimate/sectionvariants";
-import Landingdescription from "./components/landingpage/Landingdescription";
-import Landingbutton from "./components/landingpage/Landingbutton";
-import Landingimage1 from "./components/landingpage/Landingimage1";
-import About from "./components/landingpage/About";
-import Footer from "./components/Footer";
-import Publicnavbar from "./components/Navbar/publicnavbar";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import Landingdescription from "../components/landingpage/Landingdescription";
+import Landingbutton from "../components/landingpage/Landingbutton";
+import Landingimage1 from "../components/landingpage/Landingimage1";
+import About from "../components/landingpage/About";
+import Footer from "../components/Footer";
+import Publicnavbar from "../components/Navbar/publicnavbar";
 
 export default function Home() {
+
+  const sectionvariants: Variants = {
+    hidden: {
+      opacity: 0,
+      scale: 1,
+      y: 30,
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+
   return (
     <div className="h-screen overflow-y-scroll scroll-snap-y bg-[#f2f7f9]">
       <AnimatePresence>

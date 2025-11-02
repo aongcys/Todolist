@@ -1,9 +1,9 @@
-import Applayout from '@/pages/components/layout/Applayout'
+import Applayout from '@/components/layout/Applayout'
 import React from 'react'
 import { TbBrandDaysCounter } from 'react-icons/tb'
-import Calendarlistbutton from '@/pages/components/dashboardelement/calender&listbutton'
-import Addtodo from '@/pages/components/dashboardelement/addtodo'
-import Thisdaytodo from '@/pages/components/dashboardelement/thisdaytodo'
+import Calendarlistbutton from '@/components/dashboardelement/calender&listbutton'
+import Addtodo from '@/components/dashboardelement/addtodo'
+import Thisdaytodo from '@/components/dashboardelement/thisdaytodo'
 
 function Importantpage() {
 

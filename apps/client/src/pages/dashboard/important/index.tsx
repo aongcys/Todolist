@@ -1,4 +1,4 @@
-import Dashbordlayout from '@/pages/components/layout/dashbord'
+import Dashbordlayout from '@/components/layout/dashbord'
 import React from 'react'
 
 function Importantpage() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Applayout from '@/pages/components/layout/Applayout';
+import Applayout from '@/components/layout/Applayout';
 
 function Alltodolistpage() {
   return (

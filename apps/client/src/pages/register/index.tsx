@@ -1,6 +1,6 @@
 import React from 'react'
-import Wallpaper from '../components/login&register/wallpaper'
-import Registerlayout from '../components/login&register/Registerlayout';
+import Wallpaper from '../../components/login&register/wallpaper'
+import Registerlayout from '../../components/login&register/Registerlayout';
 
 function Registerpage() {
   return (
