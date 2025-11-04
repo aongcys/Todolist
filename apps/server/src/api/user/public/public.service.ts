@@ -13,6 +13,7 @@ export class UserPublicService {
   async register(args: RegisterArgs) {
     const { email, password, firstName, lastName, confirmPassword } = args;
     // console.log(typeof email, typeof password, typeof firstName, typeof lastName, typeof confirmPassword);
+    console.log('Register Args:', args.email);
     const findUser = await this.db.user.findUnique({ where: { email } });
     if (findUser) {
       throw new Error('User already exists');
@@ -21,7 +22,6 @@ export class UserPublicService {
     if (password !== confirmPassword) {
       throw new Error('Passwords do not match');
     }
-
     const hashedPassword = await this.authService.hashPassword(password);
     const newuser = await this.db.user.create({
       data: {

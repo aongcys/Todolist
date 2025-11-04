@@ -8,7 +8,7 @@ export class PublicController {
 
   @Post('/register')
   async register(@Body() args: RegisterArgs) {
-    console.log('Register Args:', args);
+    
     await this.service.register(args);
     return { statusCode: HttpStatus.CREATED };
   }

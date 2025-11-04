@@ -34,17 +34,17 @@ function Addtodo() {
       </button>
 
       <div
-        className={`transition-all duration-1000 overflow-hidden bg-gray-100 p-1 pl-5 flex items-center justify-between rounded-b-xl shadow-md
+        className={`transition-all duration-500 overflow-hidden bg-gray-100 p-1 pl-5 flex items-center justify-between rounded-b-xl shadow-md
   ${showinput ? "h-14 opacity-100" : "h-0 opacity-0"}`}
       >
-        <div className='tooltip tooltip-right flex items-center p-2 bg-white rounded-lg hover:bg-[#8caae9] hover:text-white hover:transition hover:duration-500' data-tip="Add Date">
+        <div className='tooltip tooltip-right flex items-center cursor-pointer p-2 bg-white rounded-lg hover:bg-[#8caae9] hover:text-white hover:transition hover:duration-500' data-tip="Add Date">
           <button className='flex cursor-pointer'><LuCalendarClock className='size-5' /></button>
         </div>
         <div className='flex gap-2'>
           <button
-            className='border-[1.5px] border-[#3f8ae7] p-1.5 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-500 cursor-point'>Add Task</button>
+            className='border-[1.5px] cursor-pointer border-[#3f8ae7] p-1.5 rounded-lg text-sm font-semibold text-[#3f8ae7] hover:text-white hover:bg-[#3f8ae7] hover:transition hover:duration-300 cursor-point'>Add Task</button>
           <button
-            className='border-[1.5px] border-[#e73f61] p-1.5 rounded-lg text-sm font-semibold text-[#e73f61] hover:text-white hover:bg-[#e73f61] hover:transition hover:duration-500 cursor-point'
+            className='border-[1.5px] cursor-pointer border-[#e73f61] p-1.5 rounded-lg text-sm font-semibold text-[#e73f61] hover:text-white hover:bg-[#e73f61] hover:transition hover:duration-300 cursor-point'
             onClick={closeaddtodo}
           >Cancel</button>
 

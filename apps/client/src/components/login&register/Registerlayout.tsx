@@ -47,9 +47,7 @@ function Registerlayout() {
         password: data.password,
         confirmPassword: data.confirmpassword
       };
-      const response = await axios.post("http://192.168.1.106:4001/public/register", {
-        payload
-      });
+      const response = await axios.post("http://192.168.1.106:4001/public/register",payload);
       console.log('Registration successful:', response.data);
       router.push('/login')
     }
