@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 type RegisterArgs = {
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   confirmpassword: string;
@@ -22,24 +23,47 @@ function Registerlayout() {
   const router = useRouter();
 
 
-  const OnSubmit: SubmitHandler<RegisterArgs> = data => {
+  const OnSubmit: SubmitHandler<RegisterArgs> = async (data) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if ((!data.email && !data.password) || !emailPattern.test(data.email)) {
       console.log('Email Incorrect');
       setAlert("Email are Incorrect");
-    } else if (data.firstname.length < 1 || data.lastname.length < 1) {
+    } else if (data.firstName.length < 1 || data.lastName.length < 1) {
       console.log('Name Incorrect');
     } else if (data.password.length < 8) {
       console.log('Password Incorrect');
     } else if (data.password !== data.confirmpassword) {
       console.log('Password not match');
-    } else {
-      console.log('Rgister in with', data);
+    }
+    try {
       setAlert("");
+      console.log('Register in with', data);
+
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: data.password,
+        confirmPassword: data.confirmpassword
+      };
+      const response = await axios.post("http://192.168.1.106:4001/public/register", {
+        payload
+      });
+      console.log('Registration successful:', response.data);
       router.push('/login')
     }
+    catch (error) {
+      console.error('Registration failed:', error);
+
+      if (axios.isAxiosError(error) && error.response) {
+        setAlert(error.response.data.message || 'Registration failed.');
+      } else {
+        setAlert('An error occurred. Please try again.');
+      }
+    }
   }
+
 
   return (
     <div className='flex flex-col justify-center items-center gap-5'>
@@ -55,7 +79,7 @@ function Registerlayout() {
               <input
                 type="text"
                 placeholder='Firstname'
-                {...register('firstname', { required: false })}
+                {...register('firstName', { required: false })}
                 className='w-full border border-gray-300 rounded-xl bg-white p-3 focus:outline-none focus:ring-1 focus:ring-[#6CAAF9]' />
             </div>
             <div>
@@ -63,7 +87,7 @@ function Registerlayout() {
               <input
                 type="text"
                 placeholder='Lastname'
-                {...register('lastname', { required: false })}
+                {...register('lastName', { required: false })}
                 className='w-full border border-gray-300 rounded-xl bg-white p-3 focus:outline-none focus:ring-1 focus:ring-[#6CAAF9]' />
             </div>
 
@@ -124,5 +148,6 @@ function Registerlayout() {
     </div>
   )
 }
+
 
 export default Registerlayout
