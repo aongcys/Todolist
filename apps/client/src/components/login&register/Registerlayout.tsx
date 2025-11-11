@@ -31,13 +31,15 @@ function Registerlayout() {
       setAlert("Email are Incorrect");
     } else if (data.firstName.length < 1 || data.lastName.length < 1) {
       console.log('Name Incorrect');
+      setAlert("Name Incorrect");
     } else if (data.password.length < 8) {
       console.log('Password Incorrect');
+      setAlert("Password Incorrect");
     } else if (data.password !== data.confirmpassword) {
       console.log('Password not match');
-    }
-    try {
-      setAlert("");
+      setAlert("Password not match");
+    } else { 
+      try {
       console.log('Register in with', data);
 
       const payload = {
@@ -47,17 +49,18 @@ function Registerlayout() {
         password: data.password,
         confirmPassword: data.confirmpassword
       };
-      const response = await axios.post("http://192.168.1.106:4001/public/register",payload);
+      const response = await axios.post("http://localhost:4001/public/register",payload);
       console.log('Registration successful:', response.data);
       router.push('/login')
-    }
-    catch (error) {
-      console.error('Registration failed:', error);
+      }
+      catch (error) {
+        console.error('Registration failed:', error);
 
-      if (axios.isAxiosError(error) && error.response) {
-        setAlert(error.response.data.message || 'Registration failed.');
-      } else {
-        setAlert('An error occurred. Please try again.');
+        if (axios.isAxiosError(error) && error.response) {
+          setAlert(error.response.data.message || 'Registration failed.');
+        } else {
+         setAlert('An error occurred. Please try again.');
+        }
       }
     }
   }
@@ -135,7 +138,9 @@ function Registerlayout() {
               {/* prev ช่วยเรื่องของ การทำ booleen Ex จาก flase เป็น true โดย prev คือ ค่าปัจจุบันของ booleen*/}
             </div>
           </div>
-          {alert && <p className="text-red-500 text-base mt-1">{alert}</p>}
+          <div className='flex justify-center'>
+            {alert && <p className="text-red-500 text-base mt-1">{alert}</p>}
+          </div>
           <button
             type="submit" className='bg-[#6CAAF9] text-white rounded-xl font-semibold text-lg p-[10px] w-md hover:bg-[#6c99f9] transition-colors mt-5'>Register</button>
         </form>
