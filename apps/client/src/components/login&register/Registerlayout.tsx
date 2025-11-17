@@ -3,16 +3,10 @@ import Link from 'next/link'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { register as userregister } from '@/service/user';
+import { RegisterArgs } from '@/service/user/types';
 
-type RegisterArgs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmpassword: string;
-}
 
 function Registerlayout() {
 
@@ -35,33 +29,25 @@ function Registerlayout() {
     } else if (data.password.length < 8) {
       console.log('Password Incorrect');
       setAlert("Password Incorrect");
-    } else if (data.password !== data.confirmpassword) {
-      console.log('Password not match');
-      setAlert("Password not match");
-    } else { 
+    }  else { 
       try {
-      console.log('Register in with', data);
-
-      const payload = {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        password: data.password,
-        confirmPassword: data.confirmpassword
-      };
-      const response = await axios.post("http://localhost:4001/public/register",payload);
-      console.log('Registration successful:', response.data);
+        // console.log('Register in with', data);
+        const register = await userregister({
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
+          confirmPassword: data.confirmPassword
+        });
+        if (!register.success) {
+          setAlert(register.message);
+        return;
+        }
       router.push('/login')
       }
       catch (error) {
-        console.error('Registration failed:', error);
-
-        if (axios.isAxiosError(error) && error.response) {
-          setAlert(error.response.data.message || 'Registration failed.');
-        } else {
-         setAlert('An error occurred. Please try again.');
+        console.error('Registration failed:', error);        
         }
-      }
     }
   }
 
@@ -127,7 +113,7 @@ function Registerlayout() {
                 type={showconpass ? "text" : "password"}
                 placeholder='***********'
                 className='border border-gray-300 rounded-xl bg-white w-md p-3 focus:outline-none focus:ring-1 focus:ring-[#6CAAF9]'
-                {...register('confirmpassword', { required: false })}
+                {...register('confirmPassword', { required: false })}
               />
               <button
                 onClick={() => setShowconpass(prev => !prev)}

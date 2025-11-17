@@ -6,7 +6,7 @@ export class RegisterArgs {
   confirmPassword: string = '';
 }
 
-export class login {
+export class LoginArgs {
   email: string = '';
   password: string = '';
 }

@@ -4,11 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
-
-type LoginArgs = {
-  email: string;
-  password: string;
-}
+import { login as userlogin } from '@/service/user';
+import { LoginArgs } from '@/service/user/types';
 
 function Loginlayout() {
 
@@ -18,16 +15,29 @@ function Loginlayout() {
   const router = useRouter();
 
 
-  const OnSubmit: SubmitHandler<LoginArgs> = data => {
+  const OnSubmit: SubmitHandler<LoginArgs> = async (data) => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if ((!data.email && !data.password) || !emailPattern.test(data.email) || data.password.length < 8) {
       console.log('Email or Password is Incorrect');
       setAlert("Email or Password is Incorrect");
     } else {
-      console.log('Logging in with', data);
-      setAlert("");
+      // console.log('Logging in with', data);
+      try { 
+        const login = await userlogin({
+          email: data.email,
+          password: data.password
+        });
+        if (!login.success) {
+          setAlert(login.message);
+          return;
+        }
+      localStorage.setItem('token', login.data.access_token);
       router.push('/dashboard/thisday')
+      }
+      catch (error) {
+        console.error('Login failed:', error);        
+        }
     }
   }
 
